@@ -4,26 +4,28 @@
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixvim.url = "github:nix-community/nixvim";
-        flake-utils.url = "github:numtide/flake-utils";
+        flake-parts.url = "github:hercules-ci/flake-parts";
+        systems.url = "github:nix-systems/default";
     };
 
-    outputs = {
-        nixpkgs,
-        nixvim,
-        flake-utils,
-        ...
-    }: flake-utils.lib.eachDefaultSystem (system: let
-        pkgs = import nixpkgs { inherit system; };
-        lib = nixpkgs.lib.extend (final: prev: import ./lib);
-        nixvimLib = nixvim.lib.${system};
-        nixvim' = nixvim.legacyPackages.${system};
-        nixvimModule = {
-            inherit pkgs lib;
-            module = import ./config;
+    outputs = inputs:
+        inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+            systems = import inputs.systems;
+            perSystem = {pkgs, system, ...}: let
+                nixvimLib = inputs.nixvim.lib.${system};
+                lib = nixvimLib.helpers.extendedLib // (import ./lib);
+                extraSpecialArgs = {
+                    inherit inputs lib;
+                    inherit (inputs.self) opts;
+                };
+                nixvimModule = {
+                    inherit pkgs extraSpecialArgs;
+                    module = import ./config;
+                };
+                nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
+            in {
+                checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+                packages.default = nvim;
+            };
         };
-        nvim = nixvim'.makeNixvimWithModule nixvimModule;
-    in {
-        checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        packages.default = nvim;
-    });
 }
