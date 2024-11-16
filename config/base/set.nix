@@ -10,10 +10,13 @@
         scrolloff = 10;
         # Show which line your cursor is on
         cursorline = true;
+        cursorlineopt = "number";
 
         # Make line numbers default
         number = true;
         relativenumber = true;
+        numberwidth = 2;
+        ruler = false;
 
         # Enable mouse mode
         mouse = "a";

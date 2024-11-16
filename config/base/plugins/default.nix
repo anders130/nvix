@@ -13,7 +13,6 @@
         # git
         fugitive.enable = true; # git commands in nvim with ":G"
         # vim-rhubarb.enable = true;
-        gitsigns.enable = true;
 
         # autopairs
         ts-autotag.enable = true;
