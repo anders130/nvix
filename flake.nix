@@ -10,22 +10,7 @@
 
     outputs = inputs:
         inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+            imports = [./pkgs.nix];
             systems = import inputs.systems;
-            perSystem = {pkgs, system, ...}: let
-                nixvimLib = inputs.nixvim.lib.${system};
-                lib = nixvimLib.helpers.extendedLib // (import ./lib);
-                extraSpecialArgs = {
-                    inherit inputs lib;
-                    inherit (inputs.self) opts;
-                };
-                nixvimModule = {
-                    inherit pkgs extraSpecialArgs;
-                    module = import ./config;
-                };
-                nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
-            in {
-                checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-                packages.default = nvim;
-            };
         };
 }

@@ -1,12 +1,4 @@
 {
-    imports = [
-        ./langs
-        ./plugins
-
-        ./keymaps.nix
-        ./set.nix
-    ];
-
     colorschemes.catppuccin = {
         enable = true;
         settings = {
