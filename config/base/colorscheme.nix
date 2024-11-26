@@ -6,4 +6,6 @@
             transparent_background = true;
         };
     };
+ 
+    opts.fillchars.eob = " "; # remove ~ at end of buffer
 }
