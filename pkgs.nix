@@ -4,7 +4,7 @@
     ...
 }: {
     perSystem = {pkgs, system, ...}: let
-        lib = inputs.nixvim.lib.${system}.helpers.extendedLib // (import ./lib);
+        lib = inputs.nixvim.lib.nixvim.extendedLib // (import ./lib);
         extraSpecialArgs = {
             inherit inputs lib;
             inherit (inputs.self) opts;

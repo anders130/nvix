@@ -1,13 +1,15 @@
 {
-    plugins.nvim-colorizer = {
+    plugins.colorizer = {
         enable = true;
-        userDefaultOptions.names = false;
-        fileTypes = [
-            "*"
-            {
-                language = "css";
-                names = true;
-            }
-        ];
+        settings = {
+            user_default_options.names = false;
+            fileTypes = [
+                "*"
+                {
+                    language = "css";
+                    names = true;
+                }
+            ];
+        };
     };
 }
