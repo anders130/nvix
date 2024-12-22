@@ -37,7 +37,7 @@ in{
                         return
                     end
 
-                    return { timeout_ms = 200, lsp_fallback = true }
+                    return { timeout_ms = 5000, lsp_fallback = true }
                 end'';
                 formatters = {
                     convert_indentation = {
@@ -48,6 +48,8 @@ in{
                             function() return vim.fn.expand('%:p:h') end
                         '';
                     };
+                    black.prepend_args = ["--fast"];
+                    isort.prepend_args = ["--profile" "black"];
                 };
             };
         };
