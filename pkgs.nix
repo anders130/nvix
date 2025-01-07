@@ -3,12 +3,7 @@
         mkPackage = config:
             (inputs.nvf.lib.neovimConfiguration {
                 inherit pkgs;
-                modules = [
-                    (args @ {pkgs, ...}: {
-                        inherit (inputs.modulix.lib.mkModules args ./modules) imports;
-                    })
-                    config
-                ];
+                modules = [config] ++ (inputs.modulix.lib.mkModules ./modules);
             })
             .neovim;
     in {
