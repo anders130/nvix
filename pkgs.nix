@@ -1,15 +1,27 @@
 {inputs, ...}: {
     perSystem = {pkgs, ...}: let
-        mkPackage =
+        mkPackage = config:
             (inputs.nvf.lib.neovimConfiguration {
                 inherit pkgs;
-                modules = [./nvf.nix];
+                modules = [
+                    (args @ {pkgs, ...}: {
+                        inherit (inputs.modulix.lib.mkModules args ./modules) imports;
+                    })
+                    config
+                ];
             })
             .neovim;
     in {
         packages = rec {
-            base = mkPackage;
-            full = mkPackage;
+            base = mkPackage {
+                modules.bundles.base.enable = true;
+            };
+            full = mkPackage {
+                modules.bundles = {
+                    base.enable = true;
+                    full.enable = true;
+                };
+            };
             default = base;
         };
     };

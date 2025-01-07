@@ -54,6 +54,27 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "modulix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735774425,
+        "narHash": "sha256-C73gLFnEh8ZI0uDijUgCDWCd21T6I6tsaWgIBHcfAXg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "5f6aa268e419d053c3d5025da740e390b12ac936",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1735150973,
@@ -66,6 +87,27 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "mnw",
+        "type": "github"
+      }
+    },
+    "modulix": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736176994,
+        "narHash": "sha256-OZSeToZq37zOJG2K7Wr49yLgkBSB0gFEGqJbWbIGXKA=",
+        "owner": "anders130",
+        "repo": "modulix",
+        "rev": "9c3814db8697f2cd7def8b42eb0f4cc9393f5d53",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anders130",
+        "repo": "modulix",
         "type": "github"
       }
     },
@@ -2295,6 +2337,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "modulix": "modulix",
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "systems": "systems_3"
