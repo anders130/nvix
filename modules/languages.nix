@@ -1,9 +1,11 @@
 {
     vim.languages = {
+        enableLSP = true;
+        enableFormat = true;
         rust.enable = true;
         nix = {
             enable = true;
-            lsp.enable = true;
+            format.enable = false;
         };
         python.enable = true;
         ts.enable = true;
