@@ -4,13 +4,13 @@ in {
     modules = {
         plugins = {
             neo-tree.enable = true;
+            nvim-cmp.enable = true;
             statusline.enable = true;
         };
         languages.enable = true;
         theme.enable = true;
     };
     vim = {
-        autocomplete.nvim-cmp.enable = true;
         ui.noice.enable = true; # nicer command prompt
         notify.nvim-notify.enable = true;
         git = {
