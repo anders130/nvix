@@ -9,6 +9,7 @@
         vim-surround.enable = true;
         tmux-navigator.enable = true;
         which-key.enable = true;
+        direnv.enable = true;
 
         # git
         fugitive.enable = true; # git commands in nvim with ":G"
