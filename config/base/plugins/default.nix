@@ -29,5 +29,6 @@
 
         # misc
         web-devicons.enable = true;
+        noice.enable = true;
     };
 }
