@@ -3,10 +3,10 @@
     self,
     ...
 }: {
-    perSystem = {pkgs, system, ...}: let
-        lib = inputs.nixvim.lib.nixvim.extendedLib // (import ./lib);
+    perSystem = {pkgs, system, lib, ...}: let
         extraSpecialArgs = {
-            inherit inputs lib;
+            lib = lib.extend inputs.nixvim.lib.overlay // (import ./lib);
+            inherit inputs;
             inherit (inputs.self) opts;
         };
         mkPackage = imports: inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
