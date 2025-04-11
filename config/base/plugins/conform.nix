@@ -1,7 +1,6 @@
 {
     config,
     lib,
-    pkgs,
     ...
 }: let
     cfg = config.plugins.conform-nvim;
@@ -40,14 +39,6 @@ in{
                     return { timeout_ms = 5000, lsp_fallback = true }
                 end'';
                 formatters = {
-                    convert_indentation = {
-                        command = "${pkgs.gnused}/bin/sed";
-                        args = ["-i" "-E" "s/^([ \t]+)/\\1\\1/" "$FILENAME"];
-                        stdin = false;
-                        cwd.__raw = /*lua*/''
-                            function() return vim.fn.expand('%:p:h') end
-                        '';
-                    };
                     black.prepend_args = ["--fast"];
                     isort.prepend_args = ["--profile" "black"];
                 };

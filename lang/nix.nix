@@ -1,5 +1,6 @@
 {
     inputs,
+    lib,
     pkgs,
     ...
 }: {
@@ -24,9 +25,13 @@
         };
         conform-nvim = {
             ignore_filetypes = ["nix"]; # IMPORTANT: this a custom option
-            settings.formatters_by_ft.nix = ["alejandra" "convert_indentation"];
+            settings = {
+                formatters_by_ft.nix = ["alejandra"];
+                formatters.alejandra = {
+                    command = lib.getExe inputs.alejandra.defaultPackage.${pkgs.system};
+                    args = ["--experimental-config" "${inputs.self}/alejandra.toml"];
+                };
+            };
         };
     };
-
-    extraPackages = [inputs.alejandra.defaultPackage.${pkgs.system}];
 }
