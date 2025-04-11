@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+    inputs,
+    pkgs,
+    ...
+}: {
     plugins = {
         lsp.servers.nixd = {
             enable = true;
@@ -24,5 +28,5 @@
         };
     };
 
-    extraPackages = [pkgs.alejandra];
+    extraPackages = [inputs.alejandra.defaultPackage.${pkgs.system}];
 }
