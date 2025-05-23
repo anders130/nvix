@@ -1,6 +1,9 @@
 {
     filetype = {
-        extension.rasi = "rasi";
+        extension = {
+            rasi = "rasi";
+            tmux = "tmux";
+        };
         pattern.".*/hypr/.*%.conf" = "hyprlang";
     };
 
