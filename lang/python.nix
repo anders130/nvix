@@ -17,18 +17,28 @@
             };
         };
     };
-    keymaps = lib.mapAttrsToList (key: action: {
-        mode = "n";
-        options.silent = true;
-        inherit action key;
-    }) {
-        "<localleader>Mi" = ":MoltenInit<CR>";
-        "<localleader>e" = ":MoltenEvaluateOperator<CR>";
-        "<localleader>rl" = ":MoltenEvaluateLine<CR>";
-        "<localleader>rr" = ":MoltenReevaluateCell<CR>";
-        "<localleader>r" = ":<C-u>MoltenEvaluateVisual<CR>gv";
-        "<localleader>rd" = ":MoltenDelete<CR>";
-        "<localleader>oh" = ":MoltenHideOutput<CR>";
-        "<localleader>os" = ":noautocmd MoltenEnterOutput<CR>";
-    };
+    keymaps = lib.mkMerge [
+        # Normal mode mappings
+        (lib.mapAttrsToList (key: action: {
+            mode = "n";
+            options.silent = true;
+            inherit action key;
+        }) {
+            "<localleader>Mi" = ":MoltenInit<CR>";
+            "<localleader>rr" = ":MoltenReevaluateCell<CR>";
+            "<localleader>rl" = ":MoltenEvaluateLine<CR>";
+            "<localleader>rd" = ":MoltenDelete<CR>";
+            "<localleader>ro" = ":MoltenEvaluateOperator<CR>"; # replaced <localleader>e to avoid conflict
+            "<localleader>oh" = ":MoltenHideOutput<CR>";
+            "<localleader>oo" = ":noautocmd MoltenEnterOutput<CR>";
+        })
+        [
+            {
+                key = "<localleader>r";
+                action = ":<C-u>MoltenEvaluateVisual<CR>gv";
+                mode = "v";
+                options.silent = true;
+            }
+        ]
+    ];
 }
