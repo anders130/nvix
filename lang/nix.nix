@@ -28,7 +28,7 @@
             settings = {
                 formatters_by_ft.nix = ["alejandra"];
                 formatters.alejandra = {
-                    command = lib.getExe inputs.alejandra.defaultPackage.${pkgs.system};
+                    command = lib.getExe pkgs.alejandra;
                     args = ["--experimental-config" "${inputs.self}/alejandra.toml"];
                 };
             };

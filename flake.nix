@@ -14,10 +14,6 @@
                 nuschtosSearch.inputs.flake-utils.inputs.systems.follows = "systems";
             };
         };
-        alejandra = {
-            url = "github:kamadorueda/alejandra";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
     outputs = inputs:
