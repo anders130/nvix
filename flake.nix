@@ -11,7 +11,6 @@
                 nixpkgs.follows = "nixpkgs";
                 flake-parts.follows = "flake-parts";
                 systems.follows = "systems";
-                nuschtosSearch.inputs.flake-utils.inputs.systems.follows = "systems";
             };
         };
     };
