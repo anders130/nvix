@@ -18,7 +18,7 @@
                         (${flake}).nixosConfigurations.desktop.options
                     '';
                     packages.expr = /*nix*/''
-                        (${flake}).packages.${pkgs.system}.default.options
+                        (${flake}).packages.${pkgs.stdenv.hostPlatform.system}.default.options
                     '';
                 };
             };

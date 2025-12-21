@@ -1,14 +1,16 @@
 {
     plugins.neo-tree = {
         enable = true;
-        usePopupsForInput = false;
-        buffers.followCurrentFile = {
-            enabled = true;
-            leaveDirsOpen = false;
-        };
-        window = {
-            position = "right";
-            mappings."<space>" = "none";
+        settings = {
+            usePopupsForInput = false;
+            buffers.followCurrentFile = {
+                enabled = true;
+                leaveDirsOpen = false;
+            };
+            window = {
+                position = "right";
+                mappings."<space>" = "none";
+            };
         };
     };
 
