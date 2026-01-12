@@ -9,10 +9,9 @@
 
     plugins.treesitter = {
         enable = true;
-        settings = {
-            highlight.enable = true;
-            indent.enable = true;
-        };
+        highlight.enable = true;
+        indent.enable = true;
         nixvimInjections = true;
     };
+    plugins.treesitter-textobjects.enable = true;
 }
