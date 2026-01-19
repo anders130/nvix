@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
     filetype = {
         extension = {
             rasi = "rasi";
@@ -12,6 +12,6 @@
         highlight.enable = true;
         indent.enable = true;
         nixvimInjections = true;
+        grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
     };
-    plugins.treesitter-textobjects.enable = true;
 }
