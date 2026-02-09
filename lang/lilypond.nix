@@ -1,6 +1,18 @@
-{
+{pkgs, ...}: {
+    extraPackages = [pkgs.python3Packages.python-ly];
     plugins = {
         lilypond-suite.enable = true;
+        conform-nvim = {
+            enable = true;
+            settings = {
+                formatters_by_ft.lilypond = ["ly"];
+                formatters.ly = {
+                    command = "ly";
+                    args = ["reformat"];
+                    stdin = true;
+                };
+            };
+        };
         web-devicons.customIcons.ly = {
             icon = "󰴈";
             color = "#97CE86";
