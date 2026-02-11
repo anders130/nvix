@@ -13,10 +13,13 @@
                 };
             };
         };
-        web-devicons.customIcons.ly = {
-            icon = "󰴈";
-            color = "#97CE86";
-            name = "lilypond";
+        web-devicons.customIcons = rec {
+            ly = {
+                icon = "󰴈";
+                color = "#97CE86";
+                name = "lilypond";
+            };
+            ily = ly;
         };
     };
 }
