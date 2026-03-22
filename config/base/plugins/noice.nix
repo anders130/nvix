@@ -3,7 +3,6 @@
 in {
     plugins.noice.enable = true;
     plugins.lualine.settings.sections.lualine_x = [
-        "mode"
         {
             color.fg = "#f5a97f";
             cond = mkRaw ''
