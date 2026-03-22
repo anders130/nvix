@@ -1,13 +1,21 @@
-{
+{lib, ...}: {
     plugins = {
         lsp.servers = {
             ts_ls.enable = true;
             eslint.enable = true;
             vtsls.enable = true; # vue
         };
-        none-ls.sources.formatting.prettier = {
-            enable = true;
-            disableTsServerFormatter = true;
-        };
+        conform-nvim.settings.formatters_by_ft = lib.genAttrs
+        [
+            "javascript"
+            "typescript"
+            "javascriptreact"
+            "typescriptreact"
+            "vue"
+            "css"
+            "html"
+            "json"
+        ]
+        (_: ["prettier"]);
     };
 }
