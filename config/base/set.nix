@@ -36,6 +36,8 @@
         ignorecase = true;
         smartcase = true;
 
+        laststatus = 3; # statusline spans full width, not per-window
+
         # Keep signcolumn on by default
         signcolumn = "yes";
 
