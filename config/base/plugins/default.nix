@@ -6,7 +6,6 @@
         comment.enable = true; # "gc" to comment visual regions/lines
         indent-blankline.enable = true;
         otter.enable = true; # completion for embedded code
-        vim-surround.enable = true;
         tmux-navigator.enable = true;
         which-key.enable = true;
         direnv.enable = true;
@@ -24,7 +23,7 @@
             enable = true;
             modules = {
                 ai.n_lines = 500;
-                surround.enable = true;
+                surround = {};
             };
         };
 
