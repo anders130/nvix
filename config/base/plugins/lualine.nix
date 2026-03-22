@@ -2,7 +2,7 @@
     plugins.lualine = {
         enable = true;
         settings.options = {
-            theme = "catppuccin";
+            theme = "catppuccin-macchiato";
             section_separators = {
                 left = "";
                 right = "";
