@@ -41,7 +41,7 @@
                     end
                 end
                 if #folders > 0 then
-                  params.workspaceFolders = folders
+                    params.workspaceFolders = folders
                 end
             end,
         })

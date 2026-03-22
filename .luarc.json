@@ -1,0 +1,14 @@
+{
+    "diagnostics": {
+        "globals": [
+            "vim",
+            "cmp"
+        ],
+        "disable": [
+            "trailing-space",
+            "unreachable-code",
+            "miss-name",
+            "exp-in-action"
+        ]
+    }
+}

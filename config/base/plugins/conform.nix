@@ -29,7 +29,7 @@ in{
                 notify_on_error = false;
                 format_on_save = /*lua*/''function(bufnr)
                     local disable_filetypes = {
-                        ${builtins.concatStringsSep ", " (builtins.map (filetype: "${filetype} = true") cfg.ignore_filetypes)}
+                        ${builtins.concatStringsSep ", " (map (filetype: "${filetype} = true") cfg.ignore_filetypes)}
                     }
 
                     if disable_filetypes[vim.bo[bufnr].filetype] then
