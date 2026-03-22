@@ -60,10 +60,6 @@
         # Preview substitutions live, as you type!
         inccommand = "split";
 
-        # ! NOT ANYMORE Part of Kickstart
-        # Set completeopt to have a better completion experience
-        completeopt = "menuone,noselect";
-
         # NOTE: You should make sure your terminal supports this
         termguicolors = true;
     };
