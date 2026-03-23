@@ -19,6 +19,11 @@
                 position = "right";
                 mappings."<space>" = "none";
             };
+            filesystem = {
+                use_libuv_file_watcher = true;
+                hijack_netrw_behavior = "open_default";
+                group_empty_dirs = true;
+            };
         };
     };
 
