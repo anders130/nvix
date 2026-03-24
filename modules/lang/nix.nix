@@ -1,6 +1,5 @@
 {
     flake.modules.lang.nix = {
-        inputs,
         lib,
         pkgs,
         ...
@@ -31,8 +30,7 @@
                 settings = {
                     formatters_by_ft.nix = ["alejandra"];
                     formatters.alejandra = {
-                        command = lib.getExe pkgs.alejandra;
-                        args = ["--experimental-config" "${inputs.self}/alejandra.toml"];
+                        command = lib.getExe pkgs.alejandra-with-config;
                     };
                 };
             };
