@@ -20,6 +20,45 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1771045967,
+        "narHash": "sha256-oYO4poyw0Sb/db2PigqugMlDwsvwLg6CSpFrMUWxA3Q=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "c968d3b54d12cf5d9c13f16f7c545a06c9d1fde6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "nix-lib": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "import-tree": "import-tree",
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771588895,
+        "narHash": "sha256-65C8yMdOXptnxO+kuDVranpq4O2O55Lp5pYHXDwY7RU=",
+        "owner": "anders130",
+        "repo": "nix-lib",
+        "rev": "1e134d94ed2bbc7d1f451b54bb57efbc7aaeb182",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anders130",
+        "repo": "nix-lib",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1773821835,
@@ -64,6 +103,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "nix-lib": "nix-lib",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "systems": "systems"

@@ -16,11 +16,18 @@
                 systems.follows = "systems";
             };
         };
+        nix-lib = {
+            url = "github:anders130/nix-lib";
+            inputs = {
+                nixpkgs-lib.follows = "nixpkgs";
+                flake-parts.follows = "flake-parts";
+            };
+        };
     };
 
     outputs = inputs:
-        inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-            imports = [./pkgs.nix];
-            systems = import inputs.systems;
+        inputs.nix-lib.lib.mkFlakeFromTree {
+            inherit inputs;
+            root = ./modules;
         };
 }
