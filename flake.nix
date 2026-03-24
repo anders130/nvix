@@ -23,6 +23,10 @@
                 flake-parts.follows = "flake-parts";
             };
         };
+        git-hooks = {
+            url = "github:cachix/git-hooks.nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs:
