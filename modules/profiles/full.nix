@@ -19,6 +19,7 @@
             lang.terraform
             lang.typst
             lang.csharp
+            lang.dart
             lang.lua
             lang.lilypond
             lang.python
